@@ -93,6 +93,23 @@ may work as well.
 
 1. [Create a project](./scripts/README.md#create-projects) and [submit jobs](./scripts/addjob/README.md).
 
+Docker
+---------------------
+You can run Admiral in a Docker container, using the provided `Dockerfile`.  This assumes that you have an already existing MySQL instance.  If you don't and need help getting one setup, check out [Getting Started with MySQL](https://dev.mysql.com/usingmysql/get_started.html).
+
+To build the container, use `docker build` passing in the MySQL information as build arguments, for example:
+
+``` bash
+❯ docker build --build-arg MYSQL_USER="user" --build-arg MYSQL_PASS="pass" --build-arg MYSQL_HOST="Your.db.fqdn" --build-arg MYSQL_DB="DB_name" -t testarmada/admiral
+```
+
+and then
+
+```
+❯ docker run -d -p 8080:80 --name admiral testaramda/admiral
+```
+
+
 
 Documentation
 ---------------------
@@ -100,6 +117,7 @@ Documentation
 * [TestSwarm wiki](https://github.com/jquery/testswarm/wiki)
 * [Submit jobs README](https://github.com/jquery/testswarm/blob/master/scripts/addjob/README.md)
 * [more wiki pages](https://github.com/jquery/testswarm/wiki/_pages)
+* [Getting Started with MySQL](https://dev.mysql.com/usingmysql/get_started.html)
 
 
 Copyright and license
